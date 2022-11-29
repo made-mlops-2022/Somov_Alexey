@@ -1,7 +1,7 @@
 # hw2
 
 ## Датасет
-Установить папку artefacts по ссылку [google-disk](https://drive.google.com/file/d/1seYrXfnFOXTMARkGz3qEBhI7oCKsVGqL/view?usp=sharing)
+Установить папку artefacts по ссылке [google-disk](https://drive.google.com/file/d/1seYrXfnFOXTMARkGz3qEBhI7oCKsVGqL/view?usp=sharing)
 ```bash
 wget --no-check-certificate 'https://drive.google.com/file/d/1seYrXfnFOXTMARkGz3qEBhI7oCKsVGqL/view?usp=sharing' -O artefacts.zip && unzip artefacts.zip
 ```
