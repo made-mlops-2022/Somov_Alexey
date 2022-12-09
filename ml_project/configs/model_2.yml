@@ -1,0 +1,58 @@
+logger_config_path: "configs/logger.yml"
+input_data_path: "data/heart_cleveland_upload.csv"
+test_data_path: "data/heart_cleveland_upload.csv"
+predict_path: "models/predicts.csv"
+output_model_path: "models/model.pkl"
+metric_path: "models/metrics.json"
+feature_transformer_path: "models/transformer.pkl"
+
+split_params:
+  val_size: 0.1
+  random_state: 23
+
+train_params:
+  model_type: "RandomForestClassifier"
+  params:
+    random_state: 42
+
+feature_params:
+  cat_features:
+    - "sex"
+    - "cp"
+    - "fbs"
+    - "restecg"
+    - "exang"
+    - "slope"
+    - "ca"
+    - "thal"
+  num_features:
+    - "age"
+    - "trestbps"
+    - "chol"
+    - "thalach"
+    - "oldpeak"
+  transform_params:
+    - trans_name: "cat_features"
+      trans_class: "SimpleImputer"
+      column_names:
+        - "sex"
+        - "cp"
+        - "fbs"
+        - "restecg"
+        - "exang"
+        - "slope"
+        - "ca"
+        - "thal"
+      params:
+        strategy: "mean"
+    - trans_name: "num_features"
+      trans_class: "SimpleImputer"
+      column_names:
+        - "age"
+        - "trestbps"
+        - "chol"
+        - "thalach"
+        - "oldpeak"
+      params:
+        strategy: "mean"
+  target_col: "condition"

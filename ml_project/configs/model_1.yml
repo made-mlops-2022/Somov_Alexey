@@ -1,0 +1,43 @@
+logger_config_path: "configs/logger.yml"
+input_data_path: "data/heart_cleveland_upload.csv"
+test_data_path: "data/heart_cleveland_upload.csv"
+predict_path: "models/predicts.csv"
+output_model_path: "models/model.pkl"
+metric_path: "models/metrics.json"
+feature_transformer_path: "models/transformer.pkl"
+
+split_params:
+  val_size: 0.1
+  random_state: 23
+
+train_params:
+  model_type: "LogisticRegression"
+  params:
+    random_state: 23
+
+feature_params:
+  cat_features:
+    - "sex"
+    - "cp"
+    - "fbs"
+    - "restecg"
+    - "exang"
+    - "slope"
+    - "ca"
+    - "thal"
+  num_features:
+    - "age"
+    - "trestbps"
+    - "chol"
+    - "thalach"
+    - "oldpeak"
+  transform_params:
+    - trans_name: "ohe"
+      trans_class: "OneHotEncoder"
+      column_names:
+        - "sex"
+        - "cp"
+        - "fbs"
+        - "restecg"
+        - "ca"
+  target_col: "condition"
